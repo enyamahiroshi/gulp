@@ -1,0 +1,758 @@
+/* ----------------------------------------------------------------
+  見出し
+---------------------------------------------------------------- */
+.hl_border {
+  &:not(:first-child) {
+    margin-top: 80px;
+  }
+  padding: 12px 10px;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 0.08em;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+
+  // 上下の線
+  &::before,
+  &::after {
+    content: "";
+    width: 100%;
+    height: 3px;
+    border-radius: 1.5px;
+    position: absolute;
+  }
+  &::before {
+    left: -14px;
+    top: 0;
+  }
+  &::after {
+    right: -14px;
+    bottom: 0;
+  }
+  // 左右の線
+  span {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    &::before,
+    &::after {
+      content: "";
+      width: 3px;
+      height: 100%;
+      border-radius: 1.5px;
+      position: absolute;
+    }
+    &::before {
+      left: 0;
+      top: 0;
+    }
+    &::after {
+      right: 0;
+      top: 0;
+    }
+  }
+
+  // 赤
+  &__1 {
+    &::before,
+    &::after,
+    span::before,
+    span::after {
+      background-color: $red;
+    }
+  }
+
+  // オレンジ
+  &__2 {
+    &::before,
+    &::after,
+    span::before,
+    span::after {
+      background-color: $orange;
+    }
+  }
+
+  // グリーン
+  &__3 {
+    &::before,
+    &::after,
+    span::before,
+    span::after {
+      background-color: $green;
+    }
+  }
+
+}
+.img_hl + .hl_border {
+  margin-top: 35px;
+}
+
+
+.hl_menu {
+  margin-top: 42px;
+  margin-bottom: 0;
+  text-align: center;
+  img {
+    width: auto;
+    height: auto;
+  }
+
+  & + .list_memu {
+    margin-top: 25px;
+  }
+}
+
+
+
+/* ----------------------------------------------------------------
+  ボタン関連
+---------------------------------------------------------------- */
+.btn {
+  display: block;
+  padding: 13px 30px 13px 10px;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.5;
+  background-repeat: no-repeat;
+  background-position: right 18px center;
+  background-size: 5px 10px;
+  border: 1px solid;
+  &:link, &:visited {
+    background-color: #fff;
+    text-decoration: none;
+  }
+  @include flex(nowrap, center, center);
+
+  // 赤ベース：店舗を見るなど
+  &__1 {
+    border-color: $red;
+    border-radius: 24px;
+    &:link, &:visited {
+      color: $red;
+      background-image: url(../img/common/ico_arrow_right1.svg);
+    }
+    &:hover, &:active {
+      color: #fff;
+      background-color: $red;
+      background-image: url(../img/common/ico_arrow_right5.svg);
+    }
+  }
+
+  // オレンジ：デリバリーなど
+  &__2 {
+    border-color: $orange;
+    border-radius: 6px;
+    &:link, &:visited {
+      color: $orange;
+      background-image: url(../img/common/ico_arrow_right3.svg);
+    }
+    &:hover, &:active {
+      color: #fff;
+      background-color: $orange;
+      background-image: url(../img/common/ico_arrow_right5.svg);
+    }
+  }
+
+  // グリーン：テイクアウトなど
+  &__3 {
+    border-color: $green;
+    border-radius: 6px;
+    &:link, &:visited {
+      color: $green;
+      background-image: url(../img/common/ico_arrow_right4.svg);
+    }
+    &:hover, &:active {
+      color: #fff;
+      background-color: $green;
+      background-image: url(../img/common/ico_arrow_right5.svg);
+    }
+  }
+
+  // アイコン付き
+  &__icon {
+    &:not(:first-of-type) {
+      margin-top: 24px;
+    }
+    padding: 18px 50px 19px 65px;
+    border-width: 2px;
+    border-radius: 30px;
+    position: relative;
+    &::before {
+      content: "";
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 100%;
+      position: absolute;
+      left: 30px;
+      top: 0;
+    }
+  }
+  &__1 {
+    &.btn__icon {
+      &::before {
+        width: 21px;
+        background-image: url(../img/common/ico_shop.svg);
+      }
+      &:hover, &:active {
+        &::before {
+          background-image: url(../img/common/ico_shop_white.svg);
+        }
+      }
+    }
+  }
+  &__2 {
+    &.btn__icon {
+      &::before {
+        width: 26px;
+        background-image: url(../img/common/ico_delivery.svg);
+      }
+      &:hover, &:active {
+        &::before {
+          background-image: url(../img/common/ico_delivery_white.svg);
+        }
+      }
+    }
+  }
+  &__3 {
+    &.btn__icon {
+      &::before {
+        width: 22px;
+        background-image: url(../img/common/ico_takeout.svg);
+      }
+      &:hover, &:active {
+        &::before {
+          background-image: url(../img/common/ico_takeout_white.svg);
+        }
+      }
+    }
+  }
+
+}
+
+
+.btn_wrap {
+  margin-top: 34px;
+}
+
+.page_links {
+  margin-top: 80px;
+  .btn {}
+}
+
+
+// 電話受付ボタン
+.tel_order {
+  width: 100%;
+  height: 64px;
+  font-family: $ff-num;
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.16);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 9999;
+  @include flex(nowrap, flex-start, center);
+  @include res_min( $break ){
+    justify-content: center;
+  }
+
+  &::before {
+    content: "";
+    width: 86px;
+    height: 34px;
+    margin-right: 13%;
+    border-right: 1px solid #fff;
+    background-image: url(../img/common/ico_tel.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 21px 27px;
+    @include res_min( $break ){
+      width: 46px;
+      margin-right: 28px;
+      background-position: left center;
+    }
+  }
+}
+
+
+
+/* ----------------------------------------------------------------
+  リスト
+---------------------------------------------------------------- */
+// お知らせリスト
+.list_news,
+.list_news_slim {
+  &:not(:first-child) {
+    margin-top: 35px;
+  }
+
+  // 店舗名
+  .list_news_shop_name {
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 1.4;
+    padding: 4px 0 6px 14px;
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+    &::before {
+      content: "";
+      width: 4px;
+      height: 100%;
+      background-color: $red;
+      border-radius: 2px;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    &::after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      background-color: $gray1;
+      position: absolute;
+      left: 10px;
+      bottom: 0;
+    }
+  }
+  .list_news_item {
+    margin-top: 8px;
+    .item_link {
+      display: block;
+      .item_date {
+        font-family: $ff-num;
+        font-size: 1.2rem;
+      }
+      .item_title {
+        margin-top: 2px;
+        padding-right: 35px;
+        line-height: 1.5;
+        background-image: url(../img/common/ico_arrow_right2.svg);
+        background-repeat: no-repeat;
+        background-position: right center;
+        background-size: 9px;
+      }
+    }
+  }
+}
+
+.list_news_slim {
+  &:not(:first-child) {
+    margin-top: 28px;
+  }
+  .list_news_item {
+    padding-bottom: 7px;
+    margin-top: 6px;
+    border-bottom: 1px solid $gray1;
+    .item_link {
+      .item_title {
+        margin-top: 2px;
+      }
+    }
+  }
+}
+
+
+// ナンバリングリスト
+.list_num {
+  margin-top: 40px;
+
+  .list_item {
+    min-height: 50px;
+    margin-top: 10px;
+    padding-top: 7px;
+    padding-left: 52px;
+    padding-bottom: 10px;
+    line-height: 1.5;
+    border-bottom: 1px solid $gray1;
+    position: relative;
+    em {
+      font-size: 1.6rem;
+      font-weight: bold;
+    }
+    .item_num {
+      width: 40px;
+      height: 40px;
+      font-family: $ff-num;
+      font-size: 2.4rem;
+      font-weight: 700;
+      border: 2px solid;
+      border-radius: 10px;
+      @include flex(nowrap, center, center);
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    .item_note {
+      display: block;
+      margin-top: 3px;
+      font-size: 1.3rem;
+    }
+  }
+
+  // 個別
+  &__delivery {
+    .item_num {
+      color: $orange;
+      border-color: $orange;
+    }
+  }
+  &__takeout {
+    .item_num {
+      color: $green;
+      border-color: $green;
+    }
+  }
+}
+
+
+// 情報リスト
+.list_info {
+  &:not(:first-child) {
+    margin-top: 40px;
+  }
+  border-radius: 20px;
+  overflow: hidden;
+
+  dt, dd {
+    padding: 0 20px;
+    background-color: #fff;
+  }
+  dt {
+    padding-top: 16px;
+    padding-bottom: 4px;
+    font-weight: bold;
+    color: $red;
+    &:not(:first-of-type) {
+      border-top: 1px solid #DED7C2;
+    }
+  }
+  dd {
+    padding-bottom: 16px;
+  }
+
+  // 個別
+  &__delivery {
+    dt {
+      color: $orange;
+    }
+  }
+  &__takeout {
+    dt {
+      color: $green;
+    }
+  }
+}
+
+
+// 店舗紹介リスト
+.list_shop {
+  margin-top: 35px;
+  @include res_min( $break ){
+    margin-top: -11px;
+    @include flex(wrap, space-between, stretch);
+  }
+
+  .list_shop_item {
+    &:not(:first-of-type) {
+      margin-top: 56px;
+    }
+    @include res_min( $break ){
+      flex-basis: calc(50% - 22px);
+      margin-top: 56px;
+      @include flex(nowrap, flex-start, stretch);
+      flex-direction: column;
+    }
+
+    .shop_image {
+      width: 100%;
+      height: 0;
+      padding-top: 56%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .shop_name {
+      margin-top: 6px;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .shop_txt {
+      margin-top: 3px;
+      margin-bottom: 14px;
+      font-size: 1.3rem;
+    }
+
+    @include res_min( $break ){
+      .btn {
+        margin-top: auto;
+      }
+    }
+  }
+}
+
+
+// デリバリー・テイクアウト メニューリスト
+.list_memu {
+  margin-top: 42px;
+  @include res_min( $break ){
+    margin-top: 22px;
+    @include flex(wrap, space-between, stretch);
+    &__center {
+      justify-content: center;
+    }
+  }
+
+  .list_shop_item {
+    padding-bottom: 15px;
+    background-color: #fff;
+    border-radius: 20px;
+    overflow: hidden;
+    &:not(:first-of-type) {
+      margin-top: 20px;
+    }
+    @include res_min( $break ){
+      flex-basis: calc(50% - 10px);
+      margin-top: 20px;
+      @include flex(nowrap, flex-start, stretch);
+      flex-direction: column;
+    }
+    .shop_image {
+      width: 100%;
+      height: 0;
+      padding-top: 56%;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      position: relative;
+      &::before {
+        content: "";
+        width: 80px;
+        height: 80px;
+        background-repeat: no-repeat;
+        background-position: left top;
+        background-size: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+
+    .shop_name {
+      margin: 8px 20px 0;
+      padding-left: 26px;
+      padding-bottom: 6px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      line-height: 1.5;
+      border-bottom: 1px solid #D5D5D5;
+      position: relative;
+      &::before {
+        content: "";
+        width: 16px;
+        height: 100%;
+        background-image: url(../img/common/ico_shop_black.svg);
+        background-repeat: no-repeat;
+        background-position: left top;
+        background-size: 100%;
+        position: absolute;
+        left: 0;
+        top: 2px;
+      }
+    }
+
+    .product_name {
+      margin: 10px 20px 0;
+      font-size: 1.8rem;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    .product_price {
+      margin: 3px 20px 0;
+      font-family: $ff-num;
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .product_txt {
+      margin: 2px 20px 0;
+      font-size: 1.3rem;
+      @include res_min( $break ){
+        margin-bottom: 8px;
+      }
+    }
+    .product_txt + .product_name {
+      margin-top: 6px;
+    }
+
+    .btn {
+      margin-top: 8px;
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-bottom: 5px;
+      @include res_min( $break ){
+        margin-top: auto;
+      }
+    }
+
+    .shop_image + .product_name {
+      margin-top: 13px;
+    }
+  }
+
+  // 個別
+  &__delivery {
+    .list_shop_item {
+      .shop_image::before { background-image: url(../img/common/ico_delivery_on_image.png); }
+    }
+  }
+  &__takeout {
+    .list_shop_item {
+      .shop_image::before { background-image: url(../img/common/ico_takeout_on_image.png); }
+    }
+  }
+}
+
+
+
+/* ----------------------------------------------------------------
+  ページナビ
+---------------------------------------------------------------- */
+.pager {
+  margin-top: 16px;
+  padding: 0 46px;
+  @include flex(wrap, center, stretch);
+  position: relative;
+
+  .prev,
+  .next,
+  .pager_num {
+    width: 30px;
+    flex: 0 0 30px;
+    height: 30px;
+    border-radius: 100%;
+    font-family: $ff-num;
+    font-size: 1.4rem;
+    line-height: 1;
+    @include flex(nowrap, center, center);
+  }
+
+  .pager_num {
+    margin: 16px 8px 0;
+  }
+  a.pager_num {
+    &:hover, &:active {
+      text-decoration: none;
+      background-color: $brown;
+      font-weight: 700;
+      color: #fff;
+    }
+  }
+
+  .current {
+    background-color: $brown;
+    font-weight: 700;
+    color: #fff;
+  }
+
+  // 前後
+  .prev,
+  .next {
+    position: absolute;
+    bottom: 0;
+    &::before {
+      content: "";
+      width: 30px;
+      height: 30px;
+      background-image: url(../img/common/ico_arrow_pager.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 5px;
+      border-radius: 15px;
+      position: absolute;
+      bottom: 0;
+    }
+    &::after {
+      content: "";
+      width: 30px;
+      height: 30px;
+      border: 1px solid $brown;
+      border-radius: 15px;
+      position: absolute;
+      bottom: 0;
+    }
+    &:hover, &:active {
+      text-decoration: none;
+      &::before {
+        background-color: $brown;
+        background-image: url(../img/common/ico_arrow_pager_white.svg);
+      }
+    }
+  }
+  .prev {
+    left: 0;
+    padding-left: 40px;
+    &::before {
+      transform: scale(-1,-1);
+    }
+    &::before,
+    &::after {
+      left: 0;
+    }
+  }
+  .next {
+    right: 0;
+    padding-right: 40px;
+    &::before,
+    &::after {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  ///// 個別記事内
+  &__entry {
+    margin-top: 34px;
+    margin-bottom: 60px;
+    padding: 0;
+    @include flex(nowrap, space-between, stretch);
+    .prev,
+    .next {
+      width: auto;
+      flex: 0 0 auto;
+      position: relative;
+    }
+  }
+
+}
+
+
+/* ----------------------------------------------------------------
+  その他
+---------------------------------------------------------------- */
+
+// telリンク
+.link_tel {
+  &:hover, &:focus {
+    outline: none;
+    text-decoration: none;
+  }
+}
+@include res_min( $break ){
+  .link_tel {
+    pointer-events: none;
+  }
+}

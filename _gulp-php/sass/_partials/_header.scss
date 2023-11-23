@@ -1,0 +1,42 @@
+/* ----------------------------------------------------------------
+  ヘッダーのレイアウト
+---------------------------------------------------------------- */
+.header {
+  position: relative;
+  width: 100%;
+  height: 73px;
+  text-align: left;
+  padding: 90px 0 45px;
+  padding: 12px 73px 9px 14px;
+  border-bottom: 1px solid $gray1;
+  background-color: #fff;
+
+  .site-logo {
+    width: auto;
+    height: 52px;
+    img {
+      width: auto;
+      height: 100%;
+    }
+  }
+}
+.home .header {
+  border-bottom: none;
+  background-image: url(../images/common/bg_header.png);
+  background-repeat: repeat;
+  background-position: center top;
+  background-size: auto;
+  .site-logo { // homeのみロゴはkv内で表示
+    display: none;
+  }
+}
+
+// jsで付与：スクロールでfixed
+.header.is__fixed {
+  position: fixed;
+  left: 0;
+  z-index: 9998;
+  .site-logo {
+    display: block;
+  }
+}

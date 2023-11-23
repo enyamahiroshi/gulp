@@ -1,0 +1,365 @@
+/* ----------------------------------------------------------------
+  各ページ共通
+---------------------------------------------------------------- */
+body {
+  background-image: url(../images/common/bg_body_1.png);
+  background-repeat: repeat;
+  background-position: center top;
+  background-size: auto;
+}
+
+//メインコンテンツ
+.main {
+}
+@include res_min( $break ){
+  .main {
+  }
+}
+
+// section
+.sec {
+  .inner {
+    padding-top: 64px;
+    padding-bottom: 64px;
+    @include maxW;
+  }
+
+  // 個別
+  &__bg2 {
+    background-image: url(../images/common/bg_body_2.png);
+    background-repeat: repeat;
+    background-position: center top;
+    background-size: auto;
+  }
+
+  &__pages {
+    .inner {
+      padding-top: 44px;
+      padding-bottom: 80px;
+    }
+  }
+
+}
+
+// ページタイトル
+.page_header {
+  position: relative;
+
+  .page_name {
+    height: 56px;
+    padding: 0 20px;
+    background-color: #fff;
+    @include flex(nowrap, flex-start, center);
+    img {
+      width: auto;
+      height: 28px;
+    }
+  }
+  .shop_name {
+    height: 70px;
+    padding: 0 20px;
+    font-size: 2rem;
+    font-weight: bold;
+    line-height: 1.5;
+    color: #fff;
+    background-color: $brown;
+    @include flex(nowrap, flex-start, center);
+  }
+  .page_mark {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    img {
+      width: 82px;
+      height: 73px;
+    }
+  }
+}
+@include res_min( $break ){
+  .page_header {
+    .page_name {
+      height: 96px;
+      padding: 0 95px;
+      img {
+        height: 39px;
+      }
+    }
+    .shop_name {
+      height: 80px;
+      padding: 0 95px;
+    }
+    .page_mark {
+      right: 116px;
+      top: 60px;
+    }
+  }
+}
+
+// 営業時間外に表示
+.closed_message {
+  padding: 18px 20px;
+  text-align: center;
+  color: #fff;
+  background-color: $red;
+  em, span {
+    display: block;
+    font-weight: bold;
+  }
+  em {
+    font-size: 1.8rem;
+    letter-spacing: 0.1em;
+  }
+  span {
+    margin-top: 2px;
+    font-size: 1.3rem;
+  }
+}
+
+
+/* ----------------------------------------------------------------
+  HOME
+---------------------------------------------------------------- */
+.kv {
+  background-image: url(../images/home/bg_kv_header.png);
+  background-repeat: repeat;
+  background-position: center top;
+  background-size: auto;
+
+  .kv__logo {
+    height: 147px;
+    padding: 18px 9% 0;
+    text-align: center;
+    img {
+      max-width: 304px;
+    }
+  }
+
+  .kv__image {
+    height: 98.5vw;
+    max-height: 480px;
+    padding: 0 9%;
+    background-image: url(../images/home/img_kv_bg.jpg);
+    @include res_min( $break ){
+      background-image: url(../images/home/img_kv_bg_pc.jpg);
+    }
+    background-position: center;
+    background-size: cover;
+    @include flex(nowrap, center, center);
+
+    .kv__catchcopy {
+      max-width: 450px;
+    }
+  }
+}
+
+
+
+// ------ 各共通要素
+
+// 画像タイトル
+.img_hl {
+  margin: 0 auto;
+  text-align: center;
+  img {
+    width: auto;
+  }
+}
+
+// ------ .各共通要素
+
+
+// 美麻ウマイもん31について ＆ お知らせ
+.sec_intro {
+  .inner {
+    padding-top: 40px;
+    padding-bottom: 50px;
+  }
+
+  // 美麻ウマイもんについて
+  .img_hl_about {
+    width: 260px;
+    margin: 0 auto;
+  }
+  .txt_about {
+    margin-top: 30px;
+  }
+
+  // お知らせ
+  .img_hl {
+    margin-top: 64px;
+  }
+}
+
+
+// 対象地域
+.delivery_area {
+  margin-top: 42px;
+  text-align: center;
+  img {
+    max-width: 400px;
+  }
+  .delivery_area_txt {
+    margin-top: 20px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 1.5;
+    span {
+      display: block;
+      margin-top: 10px;
+      font-size: 1.1rem;
+      font-weight: normal;
+    }
+  }
+}
+
+
+// QA
+.block_qa {
+  padding: 22px 0;
+  border-bottom: 1px solid #9F9F9F;
+  &:first-of-type {
+    margin-top: 38px;
+    border-top: 1px solid #9F9F9F;
+  }
+
+  .block_q,
+  .block_a {
+    padding-left: 50px;
+    position: relative;
+    &::before {
+      content: "";
+      width: 30px;
+      height: 100%;
+      font-size: 2.2rem;
+      font-weight: bold;
+      line-height: 1.2;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+  .block_q  {
+    &::before {
+      content: "Q";
+      color: #707070;
+      border-right: 1px solid #707070;
+    }
+  }
+  .block_a {
+    margin-top: 15px;
+    &::before {
+      content: "A";
+      color: $red;
+      border-right: 1px solid $red;
+    }
+  }
+}
+
+
+/* ----------------------------------------------------------------
+  店舗紹介
+---------------------------------------------------------------- */
+.shop_info_header {
+  .shop_info {
+    .shop_logo {
+      img {
+        border-radius: 20px;
+      }
+    }
+    .shop_txt {
+      margin-top: 24px;
+    }
+  }
+
+  .shop_images {
+    margin-top: 40px;
+    @include flex(wrap, space-between, stretch);
+    .shop_image {
+      img {
+        border-radius: 20px;
+      }
+      &:nth-of-type(1) {
+        flex-basis: 100%;
+      }
+      &:not(:nth-of-type(1)) {
+        margin-top: 10px;
+        flex-basis: calc(50% - 5px);
+      }
+    }
+  }
+}
+@include res_min( $break ){
+  .shop_info_header {
+    @include flex(nowrap, space-between, stretch);
+
+    .shop_info {
+      flex-basis: calc(50% - 16px);
+    }
+
+    .shop_images {
+      margin-top: 0;
+      flex-basis: calc(50% - 16px);
+    }
+  }
+}
+
+.shop_map {
+  margin-top: 40px;
+  iframe {
+    width: 100%;
+    height: 67vw;
+  }
+}
+@include res_min( $break ){
+  .shop_map {
+    iframe {
+      width: 100%;
+      height: 400px;
+    }
+  }
+}
+
+.fb_wrap {
+  margin-top: 80px;
+  text-align: center;
+  overflow: hidden;
+  .fb-page {
+
+  }
+}
+
+
+/* ----------------------------------------------------------------
+  お知らせ記事
+---------------------------------------------------------------- */
+.entry_wrap {
+
+  .entry_date {
+    font-family: $ff-num;
+    font-size: 1.2rem;
+  }
+
+  .entry_title {
+    margin-top: 2px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    line-height: 1.5;
+  }
+
+  .entry_body {
+    border-top: 1px solid $gray1;
+    border-bottom: 1px solid $gray1;
+    padding: 6px 0;
+    margin-top: 20px;
+
+    img, p, div, table, ul, dl, ol {
+      margin: 1em 0;
+    }
+    @include res_min( $break ){
+      img {
+        width: auto;
+      }
+    }
+  }
+
+}

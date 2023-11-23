@@ -1,0 +1,24 @@
+/* ----------------------------------------------------------------
+  フッターのレイアウト
+---------------------------------------------------------------- */
+.footer {
+  padding: 48px 20px 30px;
+  text-align: center;
+  background-color: $brown;
+  .logo_footer {
+    width: 150px;
+    margin: 0 auto;
+  }
+  .copyright {
+    margin-top: 45px;
+    font-size: 1.1rem;
+    color: #fff;
+  }
+}
+
+body.delivery,
+body.takeout {
+  .footer {
+    padding-bottom: 94px;
+  }
+}
