@@ -244,7 +244,7 @@ if ( $GLOBALS['cpSlug2'] == $post_type ) {
 
 // カスタム投稿に編集者属性を与える
 function allowAuthorEditing() {
-  add_post_type_support( $GLOBALS['cpSlug, cpSlug2'], 'author' );
+  add_post_type_support( isset($GLOBALS['cpSlug, cpSlug2']), 'author' );
 }
 add_action('init','allowAuthorEditing');
 
