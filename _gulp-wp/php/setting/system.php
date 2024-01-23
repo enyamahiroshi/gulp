@@ -4,9 +4,9 @@
 //  自動更新設定
 // ------------------------------------------------------------*/
 add_filter( 'auto_update_theme', '__return_true' );
-add_filter( 'auto_update_plugin', '__return_true' );
-add_filter( 'allow_major_auto_core_updates', '__return_true' );
-add_filter( 'allow_minor_auto_core_updates', '__return_true' );
+// add_filter( 'auto_update_plugin', '__return_true' );
+// add_filter( 'allow_major_auto_core_updates', '__return_true' );
+// add_filter( 'allow_minor_auto_core_updates', '__return_true' );
 
 /* -------------------------------------------------------------
 // ログイン画面のカスタマイズ
@@ -147,17 +147,5 @@ function my_admin_head(){
   // echo '<style type="text/css"> #contextual-help-link-wrap {display: none !important;} </style>';
 }
 add_action('admin_head', 'my_admin_head');
-
-/* -------------------------------------------------------------
-// 投稿者アーカイブを無効化してWordPressのユーザ名を隠す（「/?author=xx」実行時に404エラーを返す）
-// ------------------------------------------------------------*/
-add_filter( 'author_rewrite_rules', '__return_empty_array' );
-function disable_author_archive() {
-if( $_GET['author'] || preg_match('#/author/.+#', $_SERVER['REQUEST_URI']) ){
-wp_redirect( home_url( '/404.php' ) );
-exit;
-}
-}
-add_action('init', 'disable_author_archive');
 
 ?>
