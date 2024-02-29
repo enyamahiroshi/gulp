@@ -8,7 +8,7 @@ input[type="text"],input[type="password"],textarea,select { outline: none; }
 // ie11のinputに出る×印を消す
 input[type=text]::-ms-clear,input[type=password]::-ms-reveal { display: none; }
 // iOSでinputが角丸になるのを防止
-input[type="button"],input[type="text"],input[type="email"],input[type="url"],input[type="tel"],input[type="submit"],textarea { -webkit-appearance: none; border-radius: 0; }
+input[type="button"],input[type="text"],input[type="email"],input[type="url"],input[type="tel"],input[type="submit"],textarea { -webkit-appearance: none; -moz-appearance: none; appearance: none; border-radius: 0; }
 
 //プレースホルダーの色
 $phcolor: #bbbbbb;
@@ -26,7 +26,7 @@ form {
   margin: 0;
 }
 label {}
-input:is([type="email"],[type="number"],[type="password"],[type="search"],[type="tel"],[type="text"],[type="url"]),
+input:is([type="email"],[type="number"],[type="password"],[type="search"],[type="tel"],[type="text"],[type="url"],[type="date"]),
 select,
 textarea {
   display: block;

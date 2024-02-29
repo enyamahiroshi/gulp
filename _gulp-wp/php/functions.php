@@ -5,9 +5,8 @@ get_template_part( 'setting/custom-post-type' );
 // get_template_part( 'setting/customize-dashbord' );
 // get_template_part( 'setting/customize-plugins' );
 // get_template_part( 'setting/customize-block-editer' );
-get_template_part( 'block/breadcrumb' );
-get_template_part( 'block/prevnext-fn' );
-get_template_part( 'block/form-seni' );
+// get_template_part( 'block/breadcrumb' );
+// get_template_part( 'block/prevnext-fn' );
 
 /* -------------------------------------------------------------
 //  メインループの表示件数を制御

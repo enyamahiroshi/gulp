@@ -9,13 +9,21 @@ $defaultPostPermalink;   // 投稿の表示名
 $defaultPotSlug       = 'お知らせ';
 $defaultPostPermalink = 'information';
 
-function edit_admin_menus() {
+function change_post_menu_label() {
   global $menu;
   global $submenu;
-  $menu[5][0] = $GLOBALS['defaultPotSlug'];
-  $submenu['edit.php'][5][0] = 'すべての記事';
+  // `$menu` 配列の要素数をチェックする
+  if (isset($menu[5])) {
+    $menu[5][0] = 'information';
+  }
+  // `$submenu` 配列の要素数をチェックする
+  if (isset($submenu['edit.php'])) {
+    $submenu['edit.php'][5][0] = 'すべての記事';
+    $submenu['edit.php'][10][0] = '新規追加';
+  }
 }
-add_action('admin_menu', 'edit_admin_menus');
+add_action( 'admin_menu', 'change_post_menu_label' );
+
 
 // カテゴリー、タグを表示しない
 function my_unregister_taxonomies() {
@@ -98,6 +106,7 @@ add_action( 'init', function() {
 	$labels = array(
 		'name'               => $GLOBALS['cpName'], //管理画面などで表示する名前（単数形）
 		'add_new_item'       => '新規'.$GLOBALS['cpName'].'追加', //新規作成ページのタイトルに表示される名前
+		'add_new'            => '新規追加', //メニューに表示される名前
 		'edit_item'          => '編集', //編集ページのタイトルに表示される名前
 		'view_item'          => '表示', //編集ページの「投稿を表示」ボタンのラベル
 		'search_items'       => '検索', //一覧ページの検索ボタンのラベル
@@ -160,6 +169,7 @@ if ( $GLOBALS['cpSlug'] == $post_type ) {
 });
 // ▲▲▲▲▲▲▲▲▲▲ ------- ここまでカスタム投稿タイプ設定のセット ------- ▲▲▲▲▲▲▲▲▲▲
 
+
 // ▼▼▼▼▼▼▼▼▼▼ ------- ここからカスタム投稿タイプ設定のセット ------- ▼▼▼▼▼▼▼▼▼▼
 global
 $cpSlug2,      // カスタム投稿のスラッグ名
@@ -179,6 +189,7 @@ add_action( 'init', function() {
 	$labels = array(
 		'name'               => $GLOBALS['cpName2'], //管理画面などで表示する名前（単数形）
 		'add_new_item'       => '新規'.$GLOBALS['cpName2'].'追加', //新規作成ページのタイトルに表示される名前
+		'add_new'            => '新規追加', //メニューに表示される名前
 		'edit_item'          => '編集', //編集ページのタイトルに表示される名前
 		'view_item'          => '表示', //編集ページの「投稿を表示」ボタンのラベル
 		'search_items'       => '検索', //一覧ページの検索ボタンのラベル
